@@ -11,5 +11,25 @@ module.exports = {
         }
         return true;
     
+    },
+
+
+
+    isAgeValid: function add(age){
+        if(isNaN(age)) {
+            return false;
+        }
+       
+        if(age <= 17) {
+            return false;
+        }
+        if(age >= 101) {
+            return false;
+        }
+       
+        
+       
+        return true;
+    
     }
 }

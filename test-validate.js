@@ -34,6 +34,36 @@ describe('validate module',()=>{
     });
 
 
+    context('isAgeValid',()=>{
+        it('Function prototype : boolean isAgeValid (age: String)', ()=>{
+            expect(validate.isAgeValid('18')).to.be.true;
+        });
+        it('age ต้องเป็นข้อความที่เป็นตัวเลข', ()=>{
+            expect(validate.isAgeValid('a')).to.be.false;
+        });
+        it('อายุต้องไม่ต่ำกว่า 18 ปี และไม่เกิน 100 ปี', ()=>{
+            expect(validate.isAgeValid('17')).to.be.false;
+        });
+        it('อายุต้องไม่ต่ำกว่า 18 ปี และไม่เกิน 100 ปี', ()=>{
+            expect(validate.isAgeValid('18')).to.be.true;
+        });
+        it('อายุต้องไม่ต่ำกว่า 18 ปี และไม่เกิน 100 ปี', ()=>{
+            expect(validate.isAgeValid('100')).to.be.true;
+        });
+        it('อายุต้องไม่ต่ำกว่า 18 ปี และไม่เกิน 100 ปี', ()=>{
+            expect(validate.isAgeValid('101')).to.be.false;
+        });
+
+
+       
+
+
+       
+
+        
+    });
+
+
     
     
 });
