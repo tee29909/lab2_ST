@@ -40,5 +40,92 @@ module.exports = {
        
         return true;
     
+    },
+    isDateValid: function add(day,month,year){
+        if(!(day>0&&day<=31)) {
+            return false;
+        }
+        if(!(month>0&&month<=12)) {
+            return false;
+        }
+
+        if(!(year>1969&&year<=2020)) {
+            return false;
+        }
+        switch (month) {
+            case 1:
+                if(day >31){
+                    return false;
+                }
+                
+              break;
+            case 2:
+                    if(year%100==0&&year%400==0){
+                        if(day >29){
+                            return false;
+                        }
+                        
+                    }
+                    else{
+                        if(day >28){
+                            return false;
+                        }
+                    }
+              break;
+            case 3:
+                    if(day >31){
+                        return false;
+                    }
+              break;
+            case 4:
+                    if(day >30){
+                        return false;
+                    }
+              break;
+            case 5:
+                    if(day >31){
+                        return false;
+                    }
+              break;
+            case 6:
+                    if(day >30){
+                        return false;
+                    }
+              break;
+            case 7:
+                    if(day >31){
+                        return false;
+                    }
+                    break;
+              case 8:
+                    if(day >31){
+                        return false;
+                    }
+                    break;
+              case 9:
+                    if(day >30){
+                        return false;
+                    }
+                    break;
+              case 10:
+                    if(day >31){
+                        return false;
+                    }
+                    break;
+              case 11:
+                    if(day >30){
+                        return false;
+                    }
+                    break;
+              case 12:
+                    if(day >31){
+                        return false;
+                    }
+                    break;
+          }
+        
+        
+        return true;
+    
     }
 }

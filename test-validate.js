@@ -80,16 +80,78 @@ describe('validate module',()=>{
         it("ต้องมีอักขระ พิเศษ !@#$%^&*()_+|~-=\`{}[]:'"+";"+'<>?,./ อย่างน้อย 1 ตัว', ()=>{
             expect(validate.isPasswordValid ('Tee789852')).to.be.false;
         });
+    });
+
+    context('isDateValid',()=>{
+        it('Function prototype : boolean isDateValid(day: Integer, month: Integer, year: Integer)', ()=>{
+            expect(validate.isDateValid(13,12,2019)).to.be.true;
+        });
+        it('day เริ่ม 1 และไม่เกิน 31 ในทุก ๆ เดือน', ()=>{
+            expect(validate.isDateValid(0,12,2019)).to.be.false;
+        });
+        it('day เริ่ม 1 และไม่เกิน 31 ในทุก ๆ เดือน', ()=>{
+            expect(validate.isDateValid(50,12,2019)).to.be.false;
+        });
+        it('month เริ่มจาก 1 และไม่เกิน 12 ในทุก ๆ เดือน', ()=>{
+            expect(validate.isDateValid(13,0,2019)).to.be.false;
+        });
+        it('month เริ่มจาก 1 และไม่เกิน 12 ในทุก ๆ เดือน', ()=>{
+            expect(validate.isDateValid(13,13,2019)).to.be.false;
+        });
+        it('year จะต้องไม่ต่ำกว่า 1970 และ ไม่เกิน ปี 2020', ()=>{
+            expect(validate.isDateValid(13,13,1900)).to.be.false;
+        });
+        it('year จะต้องไม่ต่ำกว่า 1970 และ ไม่เกิน ปี 2020', ()=>{
+            expect(validate.isDateValid(13,13,2031)).to.be.false;
+        });
+
+
+
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ มกราคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,1,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ กุมภาพันธ์ มี 28 วัน', ()=>{
+            expect(validate.isDateValid(29,2,1900 )).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ กุมภาพันธ์ มี 29 วัน(ในปีอธิกสุรทิน มี 29 วัน)', ()=>{
+            expect(validate.isDateValid(30,2,2000)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ มีนาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,3,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ เมษายน มี 30 วัน', ()=>{
+            expect(validate.isDateValid(31,4,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ พฤษภาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,5,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ มิถุนายน มี 30 วัน', ()=>{
+            expect(validate.isDateValid(31,6,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ กรกฎาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,7,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ สิงหาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,8,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ กันยายน มี 30 วัน', ()=>{
+            expect(validate.isDateValid(31,9,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ ตุลาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,10,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ พฤศจิกายน มี 30 วัน', ()=>{
+            expect(validate.isDateValid(31,11,2031)).to.be.false;
+        });
+        it('เดือนแต่ละเดือนมีจำนวนวันต่างกันตามรายการดังต่อไปนี้ ธันวาคม มี 31 วัน', ()=>{
+            expect(validate.isDateValid(32,12,2031)).to.be.false;
+        });
         
-
-
-       
-
-
-       
-
+        
         
     });
+
+
 
 
 
