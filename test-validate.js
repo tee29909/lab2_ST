@@ -63,6 +63,35 @@ describe('validate module',()=>{
         
     });
 
+    context('isPasswordValid',()=>{
+        it('Function prototype : boolean isUserNameValid(password: String)', ()=>{
+            expect(validate.isPasswordValid('Tee789852@')).to.be.true;
+        });
+        it('จำนวนตัวอักษรอย่างน้อย 8 ตัวอักษร', ()=>{
+            expect(validate.isPasswordValid ('Te211@')).to.be.false;
+        });
+        it('ต้องมีอักษรตัวใหญ่เป็นส่วนประกอบอย่างน้อย 1 ตัว', ()=>{
+            expect(validate.isPasswordValid ('tee789852@')).to.be.false;
+        });
+
+        it('ต้องมีตัวเลขเป็นส่วนประกอบอย่างน้อย 3 ตัว', ()=>{
+            expect(validate.isPasswordValid ('TeeteeTEE@')).to.be.false;
+        });
+        it("ต้องมีอักขระ พิเศษ !@#$%^&*()_+|~-=\`{}[]:'"+";"+'<>?,./ อย่างน้อย 1 ตัว', ()=>{
+            expect(validate.isPasswordValid ('Tee789852')).to.be.false;
+        });
+        
+
+
+       
+
+
+       
+
+        
+    });
+
+
 
     
     

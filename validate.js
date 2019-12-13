@@ -27,7 +27,16 @@ module.exports = {
             return false;
         }
        
-        
+        return true;
+    
+    },
+
+
+    isPasswordValid: function add(password){
+        var check = /(?=.*\d)(?=.*[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/])(?=.*[0-9]{3,})(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        if(!password.match(check)) {
+            return false;
+        }
        
         return true;
     
